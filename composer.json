@@ -1,0 +1,37 @@
+{
+    "name": "zhangjinteng/6mm-hedging-bot-phpsdk",
+    "description": "PHP gRPC SDK for 6mm-hedging-bot",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "ext-grpc": "*",
+        "google/protobuf": "^4.33.6",
+        "grpc/grpc": "^1.57"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sixmm\\HedgingBot\\Proto\\": "src/Sixmm/HedgingBot/Proto/",
+            "Sixmm\\HedgingBot\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.packagist.org",
+            "canonical": true
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "scripts": {
+        "generate": "bash scripts/generate.sh",
+        "check": [
+            "@composer validate --strict",
+            "find src -name '*.php' -print0 | xargs -0 -n1 php -l"
+        ]
+    }
+}
