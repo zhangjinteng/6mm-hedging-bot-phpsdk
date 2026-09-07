@@ -110,6 +110,14 @@ message CheckExchangeConnectionResponse {
   string exchange = 2;
   string account_name = 3;
   repeated BalanceAsset assets = 4;
+  string permission_status = 5;
+  repeated PermissionCheck permissions = 6;
+}
+
+message PermissionCheck {
+  string capability = 1;
+  string status = 2;
+  string detail = 3;
 }
 
 message BalanceAsset {

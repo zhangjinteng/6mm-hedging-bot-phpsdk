@@ -30,6 +30,14 @@ class CheckExchangeConnectionResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .hedging.v1.BalanceAsset assets = 4;</code>
      */
     private $assets;
+    /**
+     * Generated from protobuf field <code>string permission_status = 5;</code>
+     */
+    protected $permission_status = '';
+    /**
+     * Generated from protobuf field <code>repeated .hedging.v1.PermissionCheck permissions = 6;</code>
+     */
+    private $permissions;
 
     /**
      * Constructor.
@@ -41,6 +49,8 @@ class CheckExchangeConnectionResponse extends \Google\Protobuf\Internal\Message
      *     @type string $exchange
      *     @type string $account_name
      *     @type \Sixmm\HedgingBot\Proto\BalanceAsset[] $assets
+     *     @type string $permission_status
+     *     @type \Sixmm\HedgingBot\Proto\PermissionCheck[] $permissions
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +141,50 @@ class CheckExchangeConnectionResponse extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sixmm\HedgingBot\Proto\BalanceAsset::class);
         $this->assets = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string permission_status = 5;</code>
+     * @return string
+     */
+    public function getPermissionStatus()
+    {
+        return $this->permission_status;
+    }
+
+    /**
+     * Generated from protobuf field <code>string permission_status = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPermissionStatus(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->permission_status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .hedging.v1.PermissionCheck permissions = 6;</code>
+     * @return RepeatedField<\Sixmm\HedgingBot\Proto\PermissionCheck>
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .hedging.v1.PermissionCheck permissions = 6;</code>
+     * @param \Sixmm\HedgingBot\Proto\PermissionCheck[] $var
+     * @return $this
+     */
+    public function setPermissions(array|RepeatedField $var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Sixmm\HedgingBot\Proto\PermissionCheck::class);
+        $this->permissions = $arr;
 
         return $this;
     }
