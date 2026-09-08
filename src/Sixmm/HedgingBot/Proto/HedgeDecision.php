@@ -58,6 +58,18 @@ class HedgeDecision extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool dry_run = 11;</code>
      */
     protected $dry_run = false;
+    /**
+     * Generated from protobuf field <code>string target_quantity = 12;</code>
+     */
+    protected $target_quantity = '';
+    /**
+     * Generated from protobuf field <code>string current_quantity = 13;</code>
+     */
+    protected $current_quantity = '';
+    /**
+     * Generated from protobuf field <code>string adjustment_quantity = 14;</code>
+     */
+    protected $adjustment_quantity = '';
 
     /**
      * Constructor.
@@ -76,6 +88,9 @@ class HedgeDecision extends \Google\Protobuf\Internal\Message
      *     @type bool $reduce_only
      *     @type string $reason
      *     @type bool $dry_run
+     *     @type string $target_quantity
+     *     @type string $current_quantity
+     *     @type string $adjustment_quantity
      * }
      */
     public function __construct($data = NULL) {
@@ -319,6 +334,72 @@ class HedgeDecision extends \Google\Protobuf\Internal\Message
     public function setDryRun(bool $var)
     {
         $this->dry_run = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string target_quantity = 12;</code>
+     * @return string
+     */
+    public function getTargetQuantity()
+    {
+        return $this->target_quantity;
+    }
+
+    /**
+     * Generated from protobuf field <code>string target_quantity = 12;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTargetQuantity(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->target_quantity = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string current_quantity = 13;</code>
+     * @return string
+     */
+    public function getCurrentQuantity()
+    {
+        return $this->current_quantity;
+    }
+
+    /**
+     * Generated from protobuf field <code>string current_quantity = 13;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setCurrentQuantity(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->current_quantity = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string adjustment_quantity = 14;</code>
+     * @return string
+     */
+    public function getAdjustmentQuantity()
+    {
+        return $this->adjustment_quantity;
+    }
+
+    /**
+     * Generated from protobuf field <code>string adjustment_quantity = 14;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAdjustmentQuantity(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->adjustment_quantity = $var;
 
         return $this;
     }

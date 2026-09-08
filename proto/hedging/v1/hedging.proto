@@ -171,6 +171,9 @@ message HedgeDecision {
   bool reduce_only = 9;
   string reason = 10;
   bool dry_run = 11;
+  string target_quantity = 12;
+  string current_quantity = 13;
+  string adjustment_quantity = 14;
 }
 
 message OrderPlan {
