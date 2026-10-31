@@ -30,6 +30,14 @@ class RunHedgeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string reason = 4;</code>
      */
     protected $reason = '';
+    /**
+     * Generated from protobuf field <code>string owner_type = 5;</code>
+     */
+    protected $owner_type = '';
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 6;</code>
+     */
+    protected $owner_id = 0;
 
     /**
      * Constructor.
@@ -41,6 +49,8 @@ class RunHedgeRequest extends \Google\Protobuf\Internal\Message
      *     @type string $source
      *     @type string $symbol
      *     @type string $reason
+     *     @type string $owner_type
+     *     @type int|string $owner_id
      * }
      */
     public function __construct($data = NULL) {
@@ -132,6 +142,50 @@ class RunHedgeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->reason = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string owner_type = 5;</code>
+     * @return string
+     */
+    public function getOwnerType()
+    {
+        return $this->owner_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>string owner_type = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setOwnerType(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->owner_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 6;</code>
+     * @return int|string
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 6;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOwnerId(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->owner_id = $var;
 
         return $this;
     }

@@ -26,6 +26,8 @@ message UpsertExposureRequest {
   string mark_price = 5;
   google.protobuf.Timestamp observed_at = 6;
   uint64 agent_id = 7;
+  string owner_type = 8;
+  uint64 owner_id = 9;
 }
 
 message UpsertPositionRequest {
@@ -40,6 +42,8 @@ message UpsertPositionRequest {
   google.protobuf.Timestamp observed_at = 9;
   uint64 agent_id = 10;
   uint64 exchange_account_id = 11;
+  string owner_type = 12;
+  uint64 owner_id = 13;
 }
 
 message RunHedgeRequest {
@@ -47,6 +51,8 @@ message RunHedgeRequest {
   string source = 2;
   string symbol = 3;
   string reason = 4;
+  string owner_type = 5;
+  uint64 owner_id = 6;
 }
 
 message EnqueueHedgeRunResponse {
@@ -140,6 +146,8 @@ message ExposureSnapshot {
   google.protobuf.Timestamp created_at = 8;
   google.protobuf.Timestamp updated_at = 9;
   uint64 agent_id = 10;
+  string owner_type = 11;
+  uint64 owner_id = 12;
 }
 
 message PositionSnapshot {
@@ -157,6 +165,8 @@ message PositionSnapshot {
   google.protobuf.Timestamp updated_at = 12;
   uint64 agent_id = 13;
   uint64 exchange_account_id = 14;
+  string owner_type = 15;
+  uint64 owner_id = 16;
 }
 
 message HedgeDecision {

@@ -42,6 +42,14 @@ class UpsertExposureRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 agent_id = 7;</code>
      */
     protected $agent_id = 0;
+    /**
+     * Generated from protobuf field <code>string owner_type = 8;</code>
+     */
+    protected $owner_type = '';
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 9;</code>
+     */
+    protected $owner_id = 0;
 
     /**
      * Constructor.
@@ -56,6 +64,8 @@ class UpsertExposureRequest extends \Google\Protobuf\Internal\Message
      *     @type string $mark_price
      *     @type \Google\Protobuf\Timestamp $observed_at
      *     @type int|string $agent_id
+     *     @type string $owner_type
+     *     @type int|string $owner_id
      * }
      */
     public function __construct($data = NULL) {
@@ -222,6 +232,50 @@ class UpsertExposureRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->agent_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string owner_type = 8;</code>
+     * @return string
+     */
+    public function getOwnerType()
+    {
+        return $this->owner_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>string owner_type = 8;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setOwnerType(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->owner_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 9;</code>
+     * @return int|string
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 9;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOwnerId(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->owner_id = $var;
 
         return $this;
     }

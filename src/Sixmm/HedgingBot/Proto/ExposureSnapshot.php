@@ -54,6 +54,14 @@ class ExposureSnapshot extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 agent_id = 10;</code>
      */
     protected $agent_id = 0;
+    /**
+     * Generated from protobuf field <code>string owner_type = 11;</code>
+     */
+    protected $owner_type = '';
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 12;</code>
+     */
+    protected $owner_id = 0;
 
     /**
      * Constructor.
@@ -71,6 +79,8 @@ class ExposureSnapshot extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $created_at
      *     @type \Google\Protobuf\Timestamp $updated_at
      *     @type int|string $agent_id
+     *     @type string $owner_type
+     *     @type int|string $owner_id
      * }
      */
     public function __construct($data = NULL) {
@@ -321,6 +331,50 @@ class ExposureSnapshot extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->agent_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string owner_type = 11;</code>
+     * @return string
+     */
+    public function getOwnerType()
+    {
+        return $this->owner_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>string owner_type = 11;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setOwnerType(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->owner_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 12;</code>
+     * @return int|string
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 owner_id = 12;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setOwnerId(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->owner_id = $var;
 
         return $this;
     }

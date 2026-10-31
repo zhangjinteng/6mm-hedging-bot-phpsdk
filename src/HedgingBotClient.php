@@ -19,7 +19,7 @@ use Sixmm\HedgingBot\Proto\UpsertExposureRequest;
 use Sixmm\HedgingBot\Proto\UpsertPositionRequest;
 use UnexpectedValueException;
 
-class HedgingBotClient implements HedgingBotClientInterface
+class HedgingBotClient implements \Sixmm\HedgingBot\Contracts\ScopedHedgingBotClientInterface
 {
     private HedgingServiceClient $client;
 
@@ -96,6 +96,29 @@ class HedgingBotClient implements HedgingBotClientInterface
             throw new \InvalidArgumentException('config_id or symbol is required');
         }
         return (new RunHedgeRequest())->setConfigId($configId)->setSource($source)->setSymbol($symbol);
+    }
+
+    private function scopedRequest(string $type, int $id, int $configId, string $source, string $symbol): RunHedgeRequest
+    {
+        if (!in_array($type, ['merchant', 'tenant'], true) || $id < 1) throw new \InvalidArgumentException('Valid owner_type and positive owner_id are required');
+        return $this->runRequest($configId, $source, $symbol)->setOwnerType($type)->setOwnerId($id);
+    }
+
+    public function runHedgeForOwner(string $ownerType, int $ownerId, int $configId, string $source = '', string $symbol = '', string $reason = ''): RunHedgeResponse
+    {
+        $request = $this->scopedRequest($ownerType, $ownerId, $configId, $source, $symbol)->setReason($reason);
+        return $this->wait($this->client->RunHedge($request, $this->metadata, $this->callOptions()), RunHedgeResponse::class);
+    }
+
+    public function exitHedgeForOwner(string $ownerType, int $ownerId, int $configId, string $source = '', string $symbol = ''): RunHedgeResponse
+    {
+        return $this->wait($this->client->ExitHedge($this->scopedRequest($ownerType, $ownerId, $configId, $source, $symbol), $this->metadata, $this->callOptions()), RunHedgeResponse::class);
+    }
+
+    public function enqueueHedgeRunForOwner(string $ownerType, int $ownerId, int $configId, string $source = '', string $symbol = '', string $reason = ''): EnqueueHedgeRunResponse
+    {
+        $request = $this->scopedRequest($ownerType, $ownerId, $configId, $source, $symbol)->setReason($reason);
+        return $this->wait($this->client->EnqueueHedgeRun($request, $this->metadata, $this->callOptions()), EnqueueHedgeRunResponse::class);
     }
 
     private function accountConfig(array $account): ExchangeAccountConfig
